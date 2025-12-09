@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>925477457595-o6c4ulb3erhntiu6p9eu4nokc5b5bmsu.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.925477457595-o6c4ulb3erhntiu6p9eu4nokc5b5bmsu</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>925477457595-32m9dus8c119dgsstvpu5ar1s05u2nrm.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyA4mv2O8uhy-67G3OoO5jMzM0cnCkpM-fI</string>
+	<key>GCM_SENDER_ID</key>
+	<string>925477457595</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.lami-tag.lamimvp</string>
+	<key>PROJECT_ID</key>
+	<string>laminitis-app</string>
+	<key>STORAGE_BUCKET</key>
+	<string>laminitis-app.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:925477457595:ios:2e636979368a89f016a39e</string>
+</dict>
+</plist>

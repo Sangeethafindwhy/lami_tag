@@ -1,0 +1,1 @@
+{"flutter":{"platforms":{"android":{"default":{"projectId":"laminitis-app","appId":"1:925477457595:android:0f8767de1f06f87816a39e","fileOutput":"android/app/google-services.json"}},"dart":{"lib/firebase_options.dart":{"projectId":"laminitis-app","configurations":{"android":"1:925477457595:android:0f8767de1f06f87816a39e","ios":"1:925477457595:ios:2e636979368a89f016a39e"}}}}}}

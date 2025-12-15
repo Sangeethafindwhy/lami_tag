@@ -236,7 +236,7 @@ class EnlistDeviceWidget extends StatelessWidget {
               softWrap: true,
             ),
             StreamBuilder(
-                stream: bloc.blueService.$blueToothState,
+                stream: bloc.blueService.$adapterState,
                 builder: (context, snapshot) {
                   final bool blueToothAdapterStatus = snapshot.hasData &&
                       (snapshot.data == BluetoothAdapterState.on ||
@@ -244,7 +244,8 @@ class EnlistDeviceWidget extends StatelessWidget {
                   return LamiSwitch(
                     value: blueToothAdapterStatus,
                     onChanged: (bool newValue) {
-                      bloc.blueService.updateBluetoothAdapterStatus(context);
+                      // Manual Bluetooth toggle is no longer supported in the new service
+                      // User must enable Bluetooth from device settings
                     },
                   );
                 }),
@@ -256,7 +257,7 @@ class EnlistDeviceWidget extends StatelessWidget {
             stream: bloc.blueService.$bluetoothScannedDevices,
             builder: (context, snapshot) {
               if (snapshot.hasData) {
-                final List<ScanResult> scannedDevices = snapshot.data!;
+                final List<ScanResult> scannedDevices = snapshot.data as List<ScanResult>;
                 scannedDevices.retainWhere((device) {
                   return device.advertisementData.advName
                       .toLowerCase()

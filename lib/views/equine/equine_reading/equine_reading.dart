@@ -32,8 +32,8 @@ class EquineReading extends StatelessWidget {
           final bloc = (context).read<EquineReadingCubit>();
           return PopScope(
             onPopInvoked: (value){
-              bloc.blueService.updateBluetoothAdapterStatus(context);
-              bloc.blueService.disConnectWithDevice();
+              // Disconnect when leaving this screen
+              bloc.blueService.disconnect();
             },
             child: SafeArea(
               child: Scaffold(
@@ -88,7 +88,7 @@ class EquineReading extends StatelessWidget {
                               softWrap: true,
                             ),
                             StreamBuilder(
-                                stream: bloc.blueService.$blueToothState,
+                                stream: bloc.blueService.$adapterState,
                                 builder: (context, snapshot) {
                                   final bool blueToothAdapterStatus = snapshot
                                           .hasData &&
@@ -98,8 +98,8 @@ class EquineReading extends StatelessWidget {
                                   return LamiSwitch(
                                     value: blueToothAdapterStatus,
                                     onChanged: (bool newValue) {
-                                      bloc.blueService
-                                          .updateBluetoothAdapterStatus(context);
+                                      // Manual Bluetooth toggle is no longer supported
+                                      // User must enable Bluetooth from device settings
                                     },
                                   );
                                 }),
@@ -163,16 +163,16 @@ class EquineReading extends StatelessWidget {
                                   stream: bloc.blueService.$reading,
                                   builder: (context, snapshot){
                                     if(snapshot.hasData){
-                                      final int value = snapshot.data!;
+                                      final double value = snapshot.data!;
                                       return SpeedometerChart(
                                         dimension: displayWidth(context) * 0.80,
                                         minValue: 10,
                                         valueWidget: LamiText(
-                                          text: value.toString(),
+                                          text: value.toStringAsFixed(0),
                                           color: bloc.decideColor(value),
                                           fontSize: 30,
                                         ),
-                                        value: value.toDouble(),
+                                        value: value,
                                         graphColor: const [LamiColors.green, Colors.orange, Colors.red],
                                         pointerColor: bloc.decideColor(value),
                                       );

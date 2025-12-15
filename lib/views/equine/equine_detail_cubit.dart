@@ -23,7 +23,7 @@ class EquinesDetailCubit extends Cubit<AppBaseState> {
   }
 
   final StorageService storageService = StorageService();
-  final blueService = BlueService();
+  final blueService = BlueService.instance;
   final emailService = EmailService();
   final validationServices = ValidationServices();
   final timeService = TimeService();

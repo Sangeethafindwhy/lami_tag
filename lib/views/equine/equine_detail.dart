@@ -91,7 +91,7 @@ class EquineDetail extends StatelessWidget {
                             softWrap: true,
                           ),
                           StreamBuilder(
-                              stream: bloc.blueService.$blueToothState,
+                              stream: bloc.blueService.$adapterState,
                               builder: (context, snapshot) {
                                 final bool blueToothAdapterStatus = snapshot
                                         .hasData &&
@@ -102,8 +102,8 @@ class EquineDetail extends StatelessWidget {
                                 return LamiSwitch(
                                   value: blueToothAdapterStatus,
                                   onChanged: (bool newValue) {
-                                    bloc.blueService
-                                        .updateBluetoothAdapterStatus(context);
+                                    // Manual Bluetooth toggle is no longer supported
+                                    // User must enable Bluetooth from device settings
                                   },
                                 );
                               }),

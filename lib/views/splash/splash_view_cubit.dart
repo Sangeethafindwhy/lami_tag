@@ -16,7 +16,7 @@ class SplashViewCubit extends Cubit<AppBaseState> {
 
   final authService = AuthService();
   final storageService = StorageService();
-  final blueService = BlueService();
+  final blueService = BlueService.instance;
 
   void checkAgreementStatus({required BuildContext context}) async {
     try {

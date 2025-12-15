@@ -13,41 +13,15 @@ class BlueCubit extends Cubit<AppBaseState> {
     //
   }
 
-  final blueService = BlueService();
+  final blueService = BlueService.instance;
   final storageService = StorageService();
 
   Future<void> connectWithDevice(BluetoothDevice bluetoothDevice) async {
-    blueService.$isConnected
-        .add(await blueService.connectWithDevice(bluetoothDevice));
-
-    if (blueService.$isConnected.value) {
-      try {
-        await bluetoothDevice.discoverServices();
-        for (var newElement in bluetoothDevice.servicesList) {
-          if (newElement.characteristics.length == 2) {
-            for (var characteristic in newElement.characteristics) {
-              if (characteristic.descriptors.isNotEmpty) {
-                characteristic.setNotifyValue(true);
-                characteristic.lastValueStream.listen((event) {
-                  try {
-                    blueService.updateReading(event.last);
-                  } catch (e) {
-                    //
-                  }
-                });
-              } else {
-                // characteristic.setNotifyValue(true);
-              }
-            }
-            //
-          } else {
-            //
-          }
-        }
-      } catch (e) {
-        //
-      }
-    } else {
+    // The new BlueService automatically handles service discovery,
+    // characteristic subscription, and data parsing
+    final connected = await blueService.connectWithDevice(bluetoothDevice);
+    
+    if (!connected) {
       log('Failed to connect');
     }
   }

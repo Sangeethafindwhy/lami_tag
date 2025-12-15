@@ -28,11 +28,11 @@ class EquineReadingCubit extends Cubit<AppBaseState> {
   }
 
   final StorageService storageService = StorageService();
-  final blueService = BlueService();
+  final blueService = BlueService.instance;
   final converterService = ConverterService();
   final equineRecordService = EquineRecordService();
 
-  List<int> heartbeatRecords = [];
+  List<double> heartbeatRecords = [];
 
   Future<void> saveAverageHeartRate() async {
     double average =
@@ -65,7 +65,7 @@ class EquineReadingCubit extends Cubit<AppBaseState> {
     blueService.updateAdjustmentFactor(value);
   }
 
-  Color decideColor(int rate) {
+  Color decideColor(num rate) {
     switch (equine.type.toLowerCase()) {
       case 'pony':
         if (rate <= 45) {

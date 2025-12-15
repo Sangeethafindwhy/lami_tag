@@ -17,7 +17,7 @@ class EquinesHomeCubit extends Cubit<AppBaseState> {
 
   final authService = AuthService();
   final storageService = StorageService();
-  final blueService = BlueService();
+  final blueService = BlueService.instance;
 
   BehaviorSubject<List<Equine>> $equines = BehaviorSubject<List<Equine>>();
 

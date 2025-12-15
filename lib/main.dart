@@ -5,6 +5,7 @@ import 'package:lami_tag/firebase_options.dart';
 import 'package:lami_tag/res/lami_colors.dart';
 import 'package:lami_tag/res/lami_strings.dart';
 import 'package:lami_tag/res/routes/lami_routes.dart';
+import 'package:lami_tag/services/blue_service.dart';
 import 'package:lami_tag/views/splash/splash_view.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -13,6 +14,10 @@ GlobalKey<NavigatorState> globalKey = GlobalKey<NavigatorState>();
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  
+  // Initialize BlueService
+  BlueService.instance.init();
+  
   runApp(const MyApp());
 }
 
